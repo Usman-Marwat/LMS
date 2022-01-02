@@ -1,0 +1,86 @@
+{  
+    "Class": "String",
+    "Courses": [	
+    {
+        "Course_id":"Course Id for a specific course here",
+        "CourseName": "String",
+        "TeacherID": "Number",
+        "Students": [
+             {
+                 "_id":"OBjectIDs",
+                "ref":"Student"
+            }
+            ],
+
+        "Quizzes": [
+                    {
+                        "Questions" : [
+                            {"Q":"Question here","marks":"Number"}
+                        ],
+                        "Attempted": [
+                            {"Student_ID":234, "Answers": [ "Q1Ans", "Q2Ans"], "ObMarks": 7}
+                            ],
+                        "TotalMarks": 10
+                    }
+
+                    ],
+        "Assignments":
+            [
+                {
+                "Description":"Slight Description of Assignment",
+                "Questions": [{"Q":"Question Here","marks":"Number"}],
+                "Attempted": [
+                    {"Student_ID": 234,"uploaded_file": "Document" }   //file upload on document word
+                    ]
+                
+                }
+            ]
+            ,
+         "Materials": [],  //gridfs library will be used for adding materials
+         "CourseResults": [{"student_id": 234, "gpa": 3.4}]
+ 
+     }
+]
+ 
+     //Teachers
+ 
+{
+    "Teachers": [
+        {
+            "TeacherID": "FromUsertable",
+            "Teachers_Name": "Anand",
+            "Teachers_Age": 69,
+            "Teachers_Salary": 69000,
+            "Teachers_Gender": "M",
+            "Teachers_Contact#": 090078601,
+            "Teachers_email": "asdasda@comsats.edu.pk"
+        }
+    ]
+}
+ 
+//Students
+ 
+{
+   "Students": [
+     {
+        "Student_ID": 420,
+        "Student_Name": "Saein",
+        "Student_Age": 69,
+        "Student_Gender": "Male",
+        "Student_CGPA": 4.1,
+        "Student_Result": [ {"Course_ID": 14,"GPA": 3.4} ]
+    }
+]
+}
+ 
+//User
+{
+    "Users": [
+      {
+         "UserID": 14,
+         "Username" :"username",
+         "Password" : "Ssas",
+         "Role" : "Admin/Head/Student/Teacher"
+     }
+    ]
+}
