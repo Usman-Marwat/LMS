@@ -255,6 +255,7 @@ router.delete("/delclass/:id", function (req, res, next) {
     res.json(results);
   });
 });
+//dmska
 router.delete("/delstudent/:id", function (req, res, next) {
   Student.deleteOne({ _id: req.params.id }, function (error, results) {
     if (error) {
