@@ -18,7 +18,7 @@ const Home = () => {
     classes.forEach((class1, index) => {
       let obj = {
         name: class1.name,
-        //if students length is 0 grap gives error
+        //if students length is 0 chart gives error so we default it to zero
         studentsNo: class1.students.length + 2,
       };
       chartObjectArray[index] = obj;
@@ -36,7 +36,6 @@ const Home = () => {
       studentsNo: 7,
     };
     setChartObjectArray([dummyObj3, ...chartObjectArray, dummyObj, dummyObj2]);
-    console.log(chartObjectArray);
     setArrayLength(chartObjectArray.length);
     setIsLengthSet(true);
   }

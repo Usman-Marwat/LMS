@@ -16,7 +16,7 @@ const Navbar = () => {
         >
           Update Teacher
         </Link>
-        <Link
+        {/* <Link
           to="/deleteAssignment"
           style={{
             color: "white",
@@ -25,7 +25,7 @@ const Navbar = () => {
           }}
         >
           Delete Assignmet?
-        </Link>
+        </Link> */}
       </div>
     </nav>
   );

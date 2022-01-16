@@ -7,8 +7,9 @@ const DeleteAssignment = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch("http://localhost:8000/admin/deleteAssignment/" + id, {
-      method: "GET",
+    console.log(id);
+    fetch("http://localhost:3001/admin/deleteAssignment/" + id, {
+      method: "DELETE",
     })
       .then(() => {
         navigate("/");
@@ -17,7 +18,9 @@ const DeleteAssignment = () => {
   }, []);
 
   return (
-    <div className="blog-details">{isPending && <div>Deleting...</div>}</div>
+    <div className="blog-details">
+      {isPending && <div>Deleting The Assignment please wait...</div>}
+    </div>
   );
 };
 

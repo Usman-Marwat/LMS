@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "./useFetch";
 import { Link } from "react-router-dom";
 
-const BlogDetails = () => {
+const ClassDetails = () => {
   const { id } = useParams();
   const {
     data: class1,
@@ -12,15 +12,15 @@ const BlogDetails = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    fetch("http://localhost:8000/blogs/" + blog.id, {
+    fetch("http://localhost:3001/admin/deleteAssignment/" + class1._id, {
       method: "DELETE",
     }).then(() => {
       navigate("/");
     });
   };
-  if (class1) {
-    console.log(class1[0].courses[0].assignments);
-  }
+  // if (class1) {
+  //   console.log(class1[0].courses[0].assignments);
+  // }
 
   return (
     <div className="blog-details">
@@ -34,18 +34,20 @@ const BlogDetails = () => {
           <article>
             <h2> Following are the Assignments</h2>
             <div className="blog-list">
-              {class1[0].courses.map((course, index) => (
+              {class1[0].courses.map((course, i) => (
                 <div className="blog-preview" key={course._id}>
-                  <Link to={`/deleteAssignment/${course.assignments[0]._id}`}>
-                    {course.assignments[0] && (
-                      <span>
-                        <p>This is assigment No: {index}</p>
-                        <p>ID: {course.assignments[0]._id}</p>
-                        <p>Description: {course.assignments[0].description}</p>
-                        <button onClick={handleClick}>delete</button>
-                      </span>
-                    )}
-                  </Link>
+                  {course.assignments.map((assign, j) => (
+                    <Link to={`/deleteAssignment/${assign._id}`}>
+                      {assign && (
+                        <span key={assign._id}>
+                          <p>This is assigment No: {j}</p>
+                          <p>ID: {assign._id}</p>
+                          <p>Description: {assign.description}</p>
+                          {/* <button onClick={}>delete</button> */}
+                        </span>
+                      )}
+                    </Link>
+                  ))}
                 </div>
               ))}
             </div>
@@ -56,4 +58,4 @@ const BlogDetails = () => {
   );
 };
 
-export default BlogDetails;
+export default ClassDetails;

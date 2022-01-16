@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 const List = ({ classes }) => {
-  console.log(classes[0]._id);
   return (
     <div className="blog-list">
       {classes.map((class1, index) => (

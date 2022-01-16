@@ -9,6 +9,7 @@ var Student = require("../models/student");
 router.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
+
 router.get("/classes", function (req, res, next) {
   Class.find({})
     .populate("teacher")
@@ -17,10 +18,10 @@ router.get("/classes", function (req, res, next) {
       if (error) {
         return next(error);
       }
-      // Respond with valid data
       res.json(results);
     });
 });
+
 router.get("/graph", function (req, res, next) {
   Class.find({})
     .populate("teacher")
@@ -45,6 +46,7 @@ router.delete("/deleteAssignment/:id", function (req, res, next) {
     res.json(results);
   });
 });
+
 router.get("/students", function (req, res, next) {
   Student.find()
     .sort("name")
