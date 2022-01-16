@@ -137,22 +137,44 @@ router.post("/addclass", function (req, res, next) {
 });
 router.get("/addclassnew", async function (req, res, next) {
   try {
-    console.log("hi");
     obj = {
-      name: "Class1",
-      teacher: "61bf56ce8a27e936c80d1292",
+      name: "Demo",
+      teacher: "61e41a8d70eb7c1c1000a0e9",
+      students: [
+        { sid: "61e41d6d0a94192ac88ca85b" },
+        { sid: "61e41d710a94192ac88ca85d" },
+        // { sid: "61e41d740a94192ac88ca85f" },
+        // { sid: "61e41d760a94192ac88ca861" },
+        // { sid: "61e41e130a94192ac88ca865" },
+      ],
       courses: [
         {
-          courseName: "course1",
+          courseName: "TCS CS12",
 
           assignments: [
             {
-              assignNo: 2,
-              description: "Do LMS project",
+              assignNo: 3,
+              description: "Do the Lab task",
+            },
+            {
+              assignNo: 1,
+              description: "Do Practicle assignment",
             },
             {
               assignNo: 3,
-              description: "Do MAD project",
+              description: "Complete the task metioned in class",
+            },
+            {
+              assignNo: 5,
+              description: "Have the group task done ",
+            },
+            {
+              assignNo: 32,
+              description: "Make Expresa and node Routes for your project",
+            },
+            {
+              assignNo: 12,
+              description: "Comple the FYP routes ",
             },
           ],
           quizes: [
@@ -164,7 +186,6 @@ router.get("/addclassnew", async function (req, res, next) {
       ],
     };
     const class1 = await Class.create(obj);
-    console.log(class1);
     res.send(class1);
   } catch (err) {
     res.send(err.message);
@@ -205,7 +226,7 @@ router.put("/assign/:cid/Student/:sid", function (req, res, next) {
   );
 });
 
-router.put("/class/:cid/teacher/:tid", function (req, res, next) {
+router.patch("/class/:cid/teacher/:tid", function (req, res, next) {
   Class.findOneAndUpdate(
     { _id: req.params.cid },
     { teacher: req.params.tid },

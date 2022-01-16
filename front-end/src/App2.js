@@ -2,6 +2,7 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Create from "./Create";
+import UpdateTeacher from "./UpdateTeacher";
 import ClassDetails from "./Details";
 import NotFound from "./NotFound";
 import DeletAssignment from "./DeleteAssignment";
@@ -18,6 +19,10 @@ function App() {
             <Route exact path="/" element={<Home />}></Route>
             <Route path="/create" element={<Create />}></Route>
             <Route path="/classes/:id" element={<ClassDetails />}></Route>
+            <Route
+              path="/class/:cid/teacher/:tid"
+              element={<UpdateTeacher />}
+            ></Route>
             <Route
               path="/deleteAssignment/:id"
               element={<DeletAssignment />}

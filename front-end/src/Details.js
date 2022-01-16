@@ -31,22 +31,42 @@ const ClassDetails = () => {
           <span>Class ID: </span> <h2>{class1[0]._id}</h2>
           <p>The Teacher of the Class is: </p>
           <h2>{class1[0].teacher.name}</h2>
+          <Link
+            style={{
+              color: "white",
+              backgroundColor: "#f1356d",
+              borderRadius: "8px",
+              margin: "10px",
+              padding: "5px",
+            }}
+            to={`/class/${id}/teacher/${class1[0].teacher._id}`}
+          >
+            Update Teacher For The Class ?
+          </Link>
           <article>
-            <h2> Following are the Assignments</h2>
+            <h1> Following are the Assignments</h1>
             <div className="blog-list">
               {class1[0].courses.map((course, i) => (
-                <div className="blog-preview" key={course._id}>
+                <div key={course._id}>
                   {course.assignments.map((assign, j) => (
-                    <Link to={`/deleteAssignment/${assign._id}`}>
-                      {assign && (
-                        <span key={assign._id}>
-                          <p>This is assigment No: {j}</p>
-                          <p>ID: {assign._id}</p>
-                          <p>Description: {assign.description}</p>
-                          {/* <button onClick={}>delete</button> */}
-                        </span>
-                      )}
-                    </Link>
+                    <div className="blog-preview" key={assign._id}>
+                      <p>This is assigment No: {j}</p>
+                      <p>ID: {assign._id}</p>
+                      <h2>Description: {assign.description}</h2>
+                      {/* <button onClick={}>delete</button> */}
+                      <Link
+                        style={{
+                          color: "white",
+                          backgroundColor: "#f1356d",
+                          borderRadius: "8px",
+                          margin: "10px",
+                          padding: "5px",
+                        }}
+                        to={`/deleteAssignment/${assign._id}`}
+                      >
+                        Delete ?
+                      </Link>
+                    </div>
                   ))}
                 </div>
               ))}

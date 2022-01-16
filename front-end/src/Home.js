@@ -23,19 +23,8 @@ const Home = () => {
       };
       chartObjectArray[index] = obj;
     });
-    let dummyObj = {
-      name: "Programming",
-      studentsNo: 5,
-    };
-    let dummyObj2 = {
-      name: "Physics",
-      studentsNo: 3,
-    };
-    let dummyObj3 = {
-      name: "TCS",
-      studentsNo: 7,
-    };
-    setChartObjectArray([dummyObj3, ...chartObjectArray, dummyObj, dummyObj2]);
+
+    setChartObjectArray([...chartObjectArray]);
     setArrayLength(chartObjectArray.length);
     setIsLengthSet(true);
   }
