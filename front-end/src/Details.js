@@ -28,7 +28,7 @@ const ClassDetails = () => {
       {error && <div>{error}</div>}
       {class1 && (
         <article>
-          <span>Class ID: </span> <h2>{class1[0]._id}</h2>
+          <span>Class ID: </span> <h2>{class1[0].name}</h2>
           <p>The Teacher of the Class is: </p>
           <h2>{class1[0].teacher.name}</h2>
           <Link

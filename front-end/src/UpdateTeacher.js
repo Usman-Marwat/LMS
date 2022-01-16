@@ -62,8 +62,9 @@ const UpdateTeacher = () => {
                 console.log(id);
               }}
             >
-              <option value={teachers[0]._id}>{teachers[0].name}</option>
-              <option value={teachers[1]._id}>{teachers[1].name}</option>
+              {teachers.map((teacher) => (
+                <option value={teacher._id}>{teacher.name}</option>
+              ))}
             </select>
             {!isPending && <button>Update</button>}
             {isPending && <button disabled>Updating...</button>}

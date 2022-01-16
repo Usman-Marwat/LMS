@@ -14,7 +14,7 @@ const Navbar = () => {
             borderRadius: "8px",
           }}
         >
-          Update Teacher
+          Create
         </Link>
         {/* <Link
           to="/deleteAssignment"
